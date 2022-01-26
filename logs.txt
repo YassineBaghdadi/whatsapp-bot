@@ -1,0 +1,752 @@
+@@ 01/21/2022, 18:15:47 ==> Started New Session 
+
+@@ 01/21/2022, 18:16:05 ==> got a message from : +212 630-504606
+
+@@ 01/21/2022, 18:16:07 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:16:09 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:16:19 ==> got a message from : +212 630-504606
+
+@@ 01/21/2022, 18:16:21 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:16:27 ==> got a message from : +212 630-504606
+
+@@ 01/21/2022, 18:16:29 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:16:30 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:16:45 ==> got a message from : +212 630-504606
+
+@@ 01/21/2022, 18:16:47 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:51:32 ==> Started New Session 
+
+@@ 01/21/2022, 18:51:49 ==> got a message from : +212 630-504606
+
+@@ 01/21/2022, 18:51:51 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 18:51:53 ==> Message sent to : +212 630-504606
+
+@@ 01/21/2022, 19:11:16 ==> Started New Session 
+
+@@ 01/21/2022, 19:12:29 ==> Started New Session 
+
+@@ 01/21/2022, 19:13:31 ==> Started New Session 
+
+@@ 01/21/2022, 19:14:56 ==> Started New Session 
+
+@@ 01/21/2022, 19:16:30 ==> Started New Session 
+
+@@ 01/21/2022, 19:59:57 ==> Started New Session 
+
+@@ 01/21/2022, 20:00:02 ==> got a message from : Karim IT 2
+
+@@ 01/21/2022, 20:00:04 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:00:06 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:32:05 ==> got a message from : Karim IT 2
+
+@@ 01/21/2022, 20:32:06 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:32:08 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:32:19 ==> got a message from : Karim IT 2
+
+@@ 01/21/2022, 20:32:20 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:32:40 ==> got a message from : Karim IT 2
+
+@@ 01/21/2022, 20:32:42 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:32:44 ==> Message sent to : Karim IT 2
+
+@@ 01/21/2022, 20:33:08 ==> got a message from : Karim IT 2
+
+@@ 01/21/2022, 20:33:09 ==> Message sent to : Karim IT 2
+
+@@ 01/22/2022, 12:10:46 ==> got a message from : Karim IT 2
+
+@@ 01/22/2022, 12:10:48 ==> Message sent to : Karim IT 2
+
+@@ 01/22/2022, 12:10:49 ==> Message sent to : Karim IT 2
+
+@@ 01/22/2022, 18:40:08 ==> got a message from : Karim IT 2
+
+@@ 01/22/2022, 18:40:10 ==> Message sent to : Karim IT 2
+
+@@ 01/22/2022, 18:40:11 ==> Message sent to : Karim IT 2
+
+@@ 01/23/2022, 19:53:54 ==> got a message from : Karim IT 2
+
+@@ 01/23/2022, 19:54:04 ==> Message sent to : Karim IT 2
+
+@@ 01/23/2022, 19:54:06 ==> Message sent to : Karim IT 2
+
+@@ 01/24/2022, 12:31:20 ==> Started New Session 
+
+@@ 01/24/2022, 12:32:07 ==> Started New Session 
+
+@@ 01/24/2022, 12:32:10 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:33:08 ==> Started New Session 
+
+@@ 01/24/2022, 12:33:10 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:34:50 ==> Started New Session 
+
+@@ 01/24/2022, 12:34:54 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:38:23 ==> Started New Session 
+
+@@ 01/24/2022, 12:38:26 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:39:01 ==> Started New Session 
+
+@@ 01/24/2022, 12:39:04 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:39:57 ==> Started New Session 
+
+@@ 01/24/2022, 12:40:00 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:47:07 ==> Started New Session 
+
+@@ 01/24/2022, 12:47:29 ==> System down ERROR : (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '630-504606 or fullname like +212 630-504606' at line 1")
+
+@@ 01/24/2022, 12:49:44 ==> Started New Session 
+
+@@ 01/24/2022, 12:49:45 ==> System down ERROR : (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '630-504606 or fullname like +212 630-504606' at line 1")
+
+@@ 01/24/2022, 12:51:36 ==> Started New Session 
+
+@@ 01/24/2022, 12:52:57 ==> Started New Session 
+
+@@ 01/24/2022, 12:53:05 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 12:53:08 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:53:10 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 12:53:12 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:06:27 ==> Started New Session 
+
+@@ 01/24/2022, 16:06:48 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 16:07:16 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 16:07:18 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:07:20 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:12:59 ==> Started New Session 
+
+@@ 01/24/2022, 16:13:10 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 16:13:12 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:13:14 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:13:16 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:14:57 ==> Started New Session 
+
+@@ 01/24/2022, 16:15:11 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 16:15:13 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:15:15 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:15:17 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 16:15:39 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 18:00:53 ==> Started New Session 
+
+@@ 01/24/2022, 18:01:17 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 18:01:19 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 18:01:21 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 18:01:23 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 18:02:17 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 18:03:45 ==> Started New Session 
+
+@@ 01/24/2022, 18:03:56 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 18:04:35 ==> Started New Session 
+
+@@ 01/24/2022, 18:04:46 ==> got a message from : +212 630-504606
+
+@@ 01/24/2022, 18:04:48 ==> Message sent to : +212 630-504606
+
+@@ 01/24/2022, 18:06:16 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:11:19 ==> Started New Session 
+
+@@ 01/25/2022, 09:11:40 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:11:41 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:11:53 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:12:05 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:12:14 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:13:31 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:13:33 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:14:04 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:14:06 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:14:26 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:14:28 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:14:40 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:14:43 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:14:44 ==> Archive +212 630-504606 Failed. ERROR : Message: no such element: Unable to locate element: {"method":"css selector","selector":"#pane-side > div:nth-child(1) > div > div > div:nth-child(8) > div > div > div > div._3OvU8 > div._3vPI2 > div.zoWT4 > span > span > span"}
+  (Session info: chrome=97.0.4692.71)
+
+
+@@ 01/25/2022, 09:17:46 ==> Started New Session 
+
+@@ 01/25/2022, 09:20:29 ==> Started New Session 
+
+@@ 01/25/2022, 09:29:35 ==> Started New Session 
+
+@@ 01/25/2022, 09:31:09 ==> Started New Session 
+
+@@ 01/25/2022, 09:31:14 ==> +212 630-504606 Archived Successfully
+
+@@ 01/25/2022, 09:32:09 ==> Started New Session 
+
+@@ 01/25/2022, 09:32:27 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:32:30 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:32:33 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:32:34 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:32:45 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:33:23 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:33:25 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:33:28 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:33:29 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:33:37 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:36:08 ==> Started New Session 
+
+@@ 01/25/2022, 09:36:52 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:36:54 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:36:57 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:36:58 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:37:11 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:37:13 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:51:46 ==> Started New Session 
+
+@@ 01/25/2022, 09:52:26 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:52:29 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:52:31 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:52:33 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:52:41 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:52:43 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:52:51 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:52:52 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:52:56 ==> +212 630-504606 Archived Successfully
+
+@@ 01/25/2022, 09:53:38 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:53:40 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:53:42 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:53:44 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:53:50 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:53:52 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:53:57 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:53:58 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:54:00 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:54:17 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:54:19 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:54:21 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:54:56 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:54:58 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:01 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:03 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:10 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:55:12 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:22 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:55:24 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:26 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:43 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:55:45 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:55:47 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:57:49 ==> Started New Session 
+
+@@ 01/25/2022, 09:58:00 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:58:38 ==> Started New Session 
+
+@@ 01/25/2022, 09:58:50 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:58:52 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:58:55 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:58:57 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 09:59:12 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 09:59:15 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:00:03 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:00:05 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:00:07 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:00:30 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:00:32 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:00:33 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:01:08 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:01:11 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:01:13 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:01:15 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:02:10 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:02:11 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:02:13 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:02:38 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:02:40 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:03:55 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:03:57 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:04:45 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:04:47 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:05:27 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:05:29 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:05:31 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:06:46 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:06:48 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:06:50 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:08:03 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:08:06 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:09:25 ==> Started New Session 
+
+@@ 01/25/2022, 10:09:35 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:10:44 ==> Started New Session 
+
+@@ 01/25/2022, 10:10:59 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:11:00 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:12:42 ==> Started New Session 
+
+@@ 01/25/2022, 10:12:51 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:12:53 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:12:56 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:13:11 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:13:13 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:13:36 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:13:38 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:14:11 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:14:12 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:14:38 ==> Started New Session 
+
+@@ 01/25/2022, 10:14:43 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:14:46 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:15:36 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:15:38 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:15:40 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:15:48 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:15:49 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:16:05 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:16:07 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:16:14 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:16:16 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:16:24 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 10:16:27 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 10:21:10 ==> Started New Session 
+
+@@ 01/25/2022, 10:33:12 ==> Started New Session 
+
+@@ 01/25/2022, 10:33:44 ==> Started New Session 
+
+@@ 01/25/2022, 10:36:17 ==> Started New Session 
+
+@@ 01/25/2022, 10:37:43 ==> Started New Session 
+
+@@ 01/25/2022, 11:06:09 ==> Started New Session 
+
+@@ 01/25/2022, 11:08:44 ==> Started New Session 
+
+@@ 01/25/2022, 11:11:07 ==> Started New Session 
+
+@@ 01/25/2022, 11:15:11 ==> Started New Session 
+
+@@ 01/25/2022, 11:18:35 ==> Started New Session 
+
+@@ 01/25/2022, 11:19:35 ==> Started New Session 
+
+@@ 01/25/2022, 11:21:22 ==> Started New Session 
+
+@@ 01/25/2022, 11:21:43 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:21:45 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:21:48 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:21:49 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:21:54 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:21:56 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:22:03 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:22:05 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:22:12 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:22:14 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:22:58 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:22:59 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:23:21 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:23:24 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:23:28 ==> +212 630-504606 Archived Successfully
+
+@@ 01/25/2022, 11:23:48 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:23:51 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:23:54 ==> +212 630-504606 Archived Successfully
+
+@@ 01/25/2022, 11:24:36 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:24:39 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:24:43 ==> +212 630-504606 Archived Successfully
+
+@@ 01/25/2022, 11:25:09 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:25:11 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:25:35 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:25:37 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:25:44 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:25:46 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:25:49 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:25:58 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:26:00 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:26:02 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:26:12 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:26:14 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:26:16 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:26:37 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:26:39 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:31:35 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:31:37 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:31:39 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:31:43 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:31:45 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:31:50 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:31:52 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:34:12 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:34:14 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:34:16 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:34:18 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:34:34 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:34:36 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:34:48 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:34:50 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:34:57 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:35:00 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:35:05 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:35:06 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:35:11 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:35:13 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:35:23 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:35:25 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:35:28 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:35:38 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:35:40 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:35:47 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:35:49 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:35:51 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:35:59 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:36:02 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:36:17 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:36:19 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:36:21 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:36:39 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:36:41 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:37:02 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:37:03 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:37:16 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:37:18 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:37:36 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:37:37 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:37:52 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:37:55 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:37:59 ==> Karim IT 2 Archived Successfully
+
+@@ 01/25/2022, 11:44:13 ==> got a message from : Karim IT 2
+
+@@ 01/25/2022, 11:44:16 ==> Message sent to : Karim IT 2
+
+@@ 01/25/2022, 11:44:19 ==> Archive Karim IT 2 Failed. ERROR : Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div[1]/span[4]/div"}
+  (Session info: chrome=97.0.4692.71)
+
+
+@@ 01/25/2022, 11:45:17 ==> Started New Session 
+
+@@ 01/25/2022, 11:45:32 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:45:34 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:45:37 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:45:47 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:45:50 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:46:14 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:46:16 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:46:44 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:46:46 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:58:10 ==> Started New Session 
+
+@@ 01/25/2022, 11:58:25 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:58:28 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:58:40 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:58:42 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:58:54 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:58:57 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:59:07 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:59:09 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:59:20 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:59:22 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:59:29 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 11:59:31 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 11:59:40 ==> +212 630-504606 Archived Successfully
+
+@@ 01/25/2022, 12:01:04 ==> got a message from : +212 630-504606
+
+@@ 01/25/2022, 12:01:06 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 12:01:08 ==> Message sent to : +212 630-504606
+
+@@ 01/25/2022, 12:03:02 ==> Started New Session 
+
+@@ 01/25/2022, 12:04:13 ==> got a message from : +212 641-944957
+
+@@ 01/25/2022, 12:04:16 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:04:18 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:04:20 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:04:28 ==> got a message from : +212 641-944957
+
+@@ 01/25/2022, 12:04:30 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:04:53 ==> got a message from : +212 641-944957
+
+@@ 01/25/2022, 12:04:55 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:05:07 ==> got a message from : +212 641-944957
+
+@@ 01/25/2022, 12:05:09 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:05:19 ==> got a message from : +212 641-944957
+
+@@ 01/25/2022, 12:05:22 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:05:50 ==> got a message from : +212 641-944957
+
+@@ 01/25/2022, 12:05:54 ==> Message sent to : +212 641-944957
+
+@@ 01/25/2022, 12:05:57 ==> +212 641-944957 Archived Successfully
+
+@@ 01/25/2022, 15:09:25 ==> Started New Session 
+
+@@ 01/25/2022, 15:09:32 ==> got a message from : +212 713-473693
+
+@@ 01/25/2022, 15:09:34 ==> Message sent to : +212 713-473693
+
+@@ 01/25/2022, 15:09:38 ==> +212 713-473693 Archived Successfully
+

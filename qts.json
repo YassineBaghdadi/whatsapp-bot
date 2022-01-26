@@ -1,0 +1,23 @@
+{
+  "fr": {
+    "Choisir l'option qui vous convient": {
+      "Je veux parler avec un agent ":"merci pour votre temps, un agent continuera avec vous dès que possible",
+      "Je suis intéresser par le recrutement": {
+        "Recrutement National": ["1 -> Télévendeurs ayant une expérience en Energie TÉLÉTRAVAIL","2 -> Chargés de Clientèle débutant", "3 -> Experience en Centre d'appel (junior & senior)","4 -> Autres" ],
+        "Recrutement International": ["1 -> Cuisiniers", "2 -> Superviseurs de restauration", "3 -> Pâtissier boulanger", "4 -> Profil IT", "5 -> Autres"]
+      },
+      "Je veux avoir des informations": {
+        "Quel sont les profils pour lesquels vous recrutez ?": "Restauration et Hôtellerie ( Managers, Shift-managers, Cuisiniers et Pâtissiers, Boulangers). Si vous êtes intéressés, envoyez-nous vos cordonnés pour qu'on puisse vous contacter. Juste votre numéro de tél suffit\n",
+        "Comment faire pour postuler ?\n": "Envoyez votre CV ou seulement votre numéro de tel ici ou par mail à: canadarecrute@saccomcg.com, un chargé de recrutement se chargera de vous appeler. \n",
+        "J'ai des questions, je veux parler à quelqu'un. Merci\n": "Bonjour, merci de nous laisser votre / vos questions, nous allons répondre le plus tôt possible. Si vous êtes intéressé, envoyez-nous votre numéro de téléphone pour qu'on puisse vous contacter.\n",
+        "Après le Covid-19, Est ce que l'immigration au Canada est toujours possible ?\n": "Oui, c'est possible nous avons d'ailleurs accompagné plusieurs candidats-clients et familles marocains qui sont actuellement au Canada. Si vous êtes intéressé, envoyez-nous vos cordonnés pour qu'on puisse vous contacter.\n",
+        "C'est quoi votre Numéro de téléphone\n": "05228-62839\n",
+        "C'est quoi votre Adresse\n": "Bonjour, Nos locaux sont situés au 53-55, Rue Imam Boukhari, Socrate. Casablanca. \nLocalisation :\nhttps://goo.gl/maps/SAAhMHJFnmSQoLRFA",
+        "J’ai déjà postulé mais tjr sans réponse ": "Merci pour l'intérêt porté a notre structure, Merci de nous écrire votre nom et prénom complet. Nous vous répondons dans les brefs délais. Excellente journée ",
+       "Intéressé par un poste":"Merci pour l'intérêt porté à notre structure, merci de nous envoyer votre candidature sur canadarecrute@saccomcg.com afin d'analyser votre profil et vous accompagner au mieux. Excellente journée",
+       "Renseignement":"Merci pour l'intérêt porté à notre structure, merci de nous envoyer votre candidature sur canadarecrute@saccomcg.com ou nous laisser votre numéro de téléphone, afin qu'une chargée de recrutement puisse",
+       "Avez-vous reçu mon CV ?":"Merci pour l'intérêt porté a notre structure, Merci de nous écrire votre nom et prénom complet afin de vérifier la réception de votre candidature. Nous vous répondons dans les brefs délais. Excellente journée  😊"
+      }
+    }
+  }
+}
