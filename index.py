@@ -31,9 +31,11 @@ langs = {}
 global USERLANG
 USERLANG = ""
 
+server = json.load(open("server.json"))
 
 def conn():
-    return pymysql.connect(host="10.73.200.200", user="user", password="user", port=3306, database="wsupbot")
+
+    return pymysql.connect(host=server["host"], user=server["username"], password=server["password"], port=server["port"], database=server["database"])
 
 
 def getLang(user):
@@ -80,10 +82,11 @@ class WhatsApp:
     timeout = 20
 
     def __init__(self, wait, screenshot=None, session=None):
-        if platform.system().lower() == "windows":
-            self.browser = webdriver.Chrome(executable_path="chromedriver.exe")
-        else:
-            self.browser = webdriver.Chrome(ChromeDriverManager().install())
+        # if platform.system().lower() == "windows":
+        self.browser = webdriver.Chrome(ChromeDriverManager().install())
+        #     self.browser = webdriver.Chrome(executable_path="chromedriver.exe")
+        # else:
+        #     self.browser = webdriver.Chrome(ChromeDriverManager().install())
         self.browser.get("https://web.whatsapp.com/")
         WebDriverWait(self.browser, wait).until(
             EC.presence_of_element_located(WhatsAppElements.search))
@@ -138,7 +141,14 @@ class WhatsApp:
         return messages
 
     def send_to(self, user, msg):
-        lng = USERLANG
+        cnx = conn()
+        cur = cnx.cursor()
+        cur.execute(f"select lang from clients where fullName like '{user}' or phone like '{user}'")
+        lng = cur.fetchone()[0]
+
+        cnx.close()
+
+        # lng = USERLANG
         search = self.browser.find_element(*WhatsAppElements.search)
         search.send_keys(user + Keys.ENTER)
         time.sleep(0.5)
@@ -264,7 +274,7 @@ class Qst:
         self.ansrs = ansrs
 
 
-whatsapp = WhatsApp(120, session="mysession")
+whatsapp = WhatsApp(259200, session="mysession")
 
 wlcmar = """مرحباً,نحن شركة توظيف مقرها الدار البيضاء/ المغرب  و بشراكة مع كندا ، نقوم بتوظيف العديد من المهنيين في  قطاع المطاعم والمطابخ في كندا مع كل الدعم اللازم .  من اجل الاستفاذة من خدماتنا التي يسهر عليها موطفو شركتنا  المختصون يرجى إرسال طلبك إلينا على    canadarecrut@saccomcg.com \n حتى يتمكن موظف التوظيف من الإجابة على جميع أسئلتك.\n يوم رائع."""
 wlcmfr = """Bonjour, nous sommes un cabinet de recrutement canadien basé au Maroc. \nNous recrutons plusieurs profils dans le secteur de restauration et la cuisine au Canada avec tout l'accompagnement nécessaire, A fin de bénéficier du notre service dont nos agents de recrutement se charagement pleinnement; \nmerci de nous envoyer votre candidature sur canadarecrut@saccomcg.com \nafin qu'une chargée de recrutement puisse répondre à toutes vos questions. \nExcellente journée."""
@@ -308,286 +318,288 @@ QnAR = {
 
 wrong = "wrong answer please try again"
 while True:
-    # try:
-    whatsapp.closeChat()
-    user_names = whatsapp.unread_usernames(scrolls=100)
-    for name in user_names:
-        messages = whatsapp.get_last_message_for(name)
-        sent_messages = whatsapp.get_last_sent_msg_for(name)
+    try:
+        whatsapp.closeChat()
+        user_names = whatsapp.unread_usernames(scrolls=100)
+        for name in user_names:
+            messages = whatsapp.get_last_message_for(name)
+            sent_messages = whatsapp.get_last_sent_msg_for(name)
 
-        logs(f"got a message from : {name}")
-        messgaes_len = len(messages)
-        latest_msg = messages[messgaes_len - 1] if len(messages) > 1 else messages
-        txt = ""
+            logs(f"got a message from : {name}")
+            messgaes_len = len(messages)
+            latest_msg = messages[messgaes_len - 1] if len(messages) > 1 else messages
+            txt = ""
 
-        print(f'Message : {messages}\nlen : {messgaes_len}\nlatest msg : {latest_msg}')
+            print(f'Message : {messages}\nlen : {messgaes_len}\nlatest msg : {latest_msg}')
 
-        if messages:
-            cnx = conn()
-            cur = cnx.cursor()
-            cur.execute(f'select lang from clients where fullname like "{name}" or phone like "{name}";')
-            llng = cur.fetchone()
-            if not llng:
-                userlang = "fr"
-            else:
-                userlang = llng[0]
-                QnA = QnAR if llng[0] == "ar" else QnA
+            if messages:
+                cnx = conn()
+                cur = cnx.cursor()
+                cur.execute(f'select lang from clients where fullname like "{name}" or phone like "{name}";')
+                llng = cur.fetchone()
+                if not llng:
+                    userlang = "fr"
+                else:
+                    userlang = llng[0]
+                    QnA = QnAR if llng[0] == "ar" else QnA
 
-            USERLANG = userlang
-            if latest_msg == "#":
-                cur.execute(f'update clients set lastQ = 2 where phone like "{name}" or fullname like "{name}"')
+                USERLANG = userlang
+                if latest_msg == "#":
+                    cur.execute(f'update clients set lastQ = 2 where phone like "{name}" or fullname like "{name}"')
 
-                cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 2')
-                txt += f"{cur.fetchone()[0]}\n\n"
+                    cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 2')
+                    txt += f"{cur.fetchone()[0]}\n\n"
 
-                cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 2;')
-                for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                    txt += f'{i + 1} --> {v}\n'
+                    cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 2;')
+                    for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                        txt += f'{i + 1} --> {v}\n'
 
-                whatsapp.send_to(name, txt)
-                continue
-            if latest_msg == "*":
-                cur.execute(f'update clients set lastQ = 1 where phone like "{name}" or fullname like "{name}"')
-                cnx.commit()
-                cur.execute(f'select  {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 1')
-                txt += f"{cur.fetchone()[0]}\n\n"
+                    whatsapp.send_to(name, txt)
+                    continue
+                if latest_msg == "*":
+                    cur.execute(f'update clients set lastQ = 1 where phone like "{name}" or fullname like "{name}"')
+                    cnx.commit()
+                    cur.execute(f'select  {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 1')
+                    txt += f"{cur.fetchone()[0]}\n\n"
 
-                cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 1;')
-                for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                    txt += f'{i + 1} --> {v}\n'
-                whatsapp.send_to(name, txt)
-                continue
-            if latest_msg == "##":
-                cur.execute(f'select lastQ from clients where phone like "{name}" or fullname like "{name}"')
-                lastQ = cur.fetchone()[0]
-                cur.execute(
-                    f'update clients set lastQ = {int(lastQ) - 1 if int(lastQ) != 1 else 1} where phone like "{name}" or fullname like "{name}"')
-                cnx.commit()
-                cur.execute(
-                    f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = {int(lastQ) - 1 if int(lastQ) != 1 else 1}')
-                txt += f"{cur.fetchone()[0]}\n\n"
+                    cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 1;')
+                    for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                        txt += f'{i + 1} --> {v}\n'
+                    whatsapp.send_to(name, txt)
+                    continue
+                if latest_msg == "##":
+                    cur.execute(f'select lastQ from clients where phone like "{name}" or fullname like "{name}"')
+                    lastQ = cur.fetchone()[0]
+                    cur.execute(
+                        f'update clients set lastQ = {int(lastQ) - 1 if int(lastQ) != 1 else 1} where phone like "{name}" or fullname like "{name}"')
+                    cnx.commit()
+                    cur.execute(
+                        f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = {int(lastQ) - 1 if int(lastQ) != 1 else 1}')
+                    txt += f"{cur.fetchone()[0]}\n\n"
 
-                cur.execute(
-                    f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = {int(lastQ) - 1 if int(lastQ) != 1 else 1};')
-                for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                    txt += f'{i + 1} --> {v}\n'
+                    cur.execute(
+                        f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = {int(lastQ) - 1 if int(lastQ) != 1 else 1};')
+                    for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                        txt += f'{i + 1} --> {v}\n'
 
-                whatsapp.send_to(name, txt)
-                continue
+                    whatsapp.send_to(name, txt)
+                    continue
 
-            if len(sent_messages) < 1:
-                cur.execute(
-                    f'insert into clients(firstmsgdate, phone)values ("{datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}", "{name}")')
-                cnx.commit()
-                whatsapp.send_to(name, wlcmar)
-                whatsapp.send_to(name, wlcmfr)
-                txt = ""
-                cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 1')
-                txt += f"{cur.fetchone()[0]}\n\n"
+                if len(sent_messages) < 1:
+                    cur.execute(
+                        f'insert into clients(firstmsgdate, phone)values ("{datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}", "{name}")')
+                    cnx.commit()
+                    whatsapp.send_to(name, wlcmar)
+                    whatsapp.send_to(name, wlcmfr)
+                    txt = ""
+                    cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 1')
+                    txt += f"{cur.fetchone()[0]}\n\n"
 
-                cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 1;')
-                for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                    txt += f'{i + 1} --> {v}\n'
-                whatsapp.send_to(name, txt)
-                cur.execute(f'update clients set lastQ = 1 where phone like "{name}" or fullname like "{name}"')
-                cnx.commit()
-            else:
-                # print(f"""select lastQ from clients where phone like "{name}" or fullname "{name}";""")
-                cur.execute(f"""select lastQ from clients where phone like "{name}" or fullname like "{name}";""")
-                lastQId = cur.fetchone()[0]
-                if str(lastQId) == "1":
-                    if latest_msg in ["1", "2"]:
-                        lng = "fr"
-                        if latest_msg == "1":
-                            lng = "ar"
+                    cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 1;')
+                    for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                        txt += f'{i + 1} --> {v}\n'
+                    whatsapp.send_to(name, txt)
+                    cur.execute(f'update clients set lastQ = 1 where phone like "{name}" or fullname like "{name}"')
+                    cnx.commit()
+                else:
+                    # print(f"""select lastQ from clients where phone like "{name}" or fullname "{name}";""")
+                    cur.execute(f"""select lastQ from clients where phone like "{name}" or fullname like "{name}";""")
+                    lastQId = cur.fetchone()[0]
+                    if str(lastQId) == "1":
+                        if latest_msg in ["1", "2"]:
+                            lng = "fr"
+                            if latest_msg == "1":
+                                lng = "ar"
 
-                        cur.execute(
-                            f'update clients set lang = "{lng}" where phone like "{name}" or fullname like "{name}";')
-                        userlang = lng
+                            cur.execute(
+                                f'update clients set lang = "{lng}" where phone like "{name}" or fullname like "{name}";')
+                            userlang = lng
 
-                        cur.execute(
-                            f'update clients set lastQ = 2 where phone like "{name}" or fullname like "{name}"')
-                        cnx.commit()
-                        txt = ""
-                        cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 2')
-                        txt += f"{cur.fetchone()[0]}\n\n"
+                            cur.execute(
+                                f'update clients set lastQ = 2 where phone like "{name}" or fullname like "{name}"')
+                            cnx.commit()
+                            txt = ""
+                            cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 2')
+                            txt += f"{cur.fetchone()[0]}\n\n"
 
-                        cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 2;')
-                        for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                            txt += f'{i + 1} --> {v}\n'
-
-                        whatsapp.send_to(name, txt)
-                    else:
-                        whatsapp.send_to(name, wrong)
-                        txt = ""
-                        cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 1')
-                        txt += f"{cur.fetchone()[0]}\n\n"
-
-                        cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 1;')
-                        for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                            txt += f'{i + 1} --> {v}\n'
-                        whatsapp.send_to(name, txt)
-
-                if str(lastQId) == "2":
-
-                    if latest_msg in [str(i) for i in range(1, 4)]:
-                        if latest_msg == '1':
-                            whatsapp.send_to(name,
-                                             "merci pour votre temps, un agent continuera avec vous dès que possible" if userlang == "fr" else
-                                             tr[
-                                                 "merci pour votre temps, un agent continuera avec vous dès que possible"])
-                            whatsapp.archiveChat(name)
-                        if latest_msg == "2":
-                            txt = "Pour quelle offre vous voulez postuler ?\n\n" if userlang == "fr" else "ما الوظيفة التي تريد التقدم  تود الترشح اليها  لها؟\n\n"
-                            # cur.execute(f"select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 3")
-                            txt += "\n".join([f"{i + 1} --> {v}" for i, v in enumerate(
-                                ["Recrutement National" if userlang == "fr" else "توظيف داخل المغرب",
-                                 "Recrutement International" if userlang == "fr" else "التوظيف الدولي توظييف خارج المغرب"])])
+                            cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 2;')
+                            for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                                txt += f'{i + 1} --> {v}\n'
 
                             whatsapp.send_to(name, txt)
-                            cur.execute(
-                                f'update clients set lastQ = 3 where phone like "{name}" or fullname like "{name}"; ')
-                            cnx.commit()
+                        else:
+                            whatsapp.send_to(name, wrong)
+                            txt = ""
+                            cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 1')
+                            txt += f"{cur.fetchone()[0]}\n\n"
 
+                            cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 1;')
+                            for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                                txt += f'{i + 1} --> {v}\n'
+                            whatsapp.send_to(name, txt)
+
+                    elif str(lastQId) == "2":
+
+                        if latest_msg in [str(i) for i in range(1, 4)]:
+                            if latest_msg == '1':
+                                whatsapp.send_to(name,
+                                                 "merci pour votre temps, un agent continuera avec vous dès que possible" if USERLANG == "fr" else
+                                                 tr["merci pour votre temps, un agent continuera avec vous dès que possible"])
+                                whatsapp.archiveChat(name)
+                            elif latest_msg == "2":
+                                txt = "Pour quelle offre vous voulez postuler ?\n\n" if USERLANG == "fr" else "ما الوظيفة التي تريد التقدم  تود الترشح اليها  لها؟\n\n"
+                                # cur.execute(f"select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 3")
+                                txt += "\n".join([f"{i + 1} --> {v}" for i, v in enumerate(
+                                    ["Recrutement National" if USERLANG == "fr" else "توظيف داخل المغرب",
+                                     "Recrutement International" if USERLANG == "fr" else "التوظيف الدولي توظييف خارج المغرب"])])
+
+                                whatsapp.send_to(name, txt)
+                                cur.execute(
+                                    f'update clients set lastQ = 3 where phone like "{name}" or fullname like "{name}"; ')
+                                cnx.commit()
+
+                            elif latest_msg == "3":
+                                cur.execute(
+                                    f'update clients set lastQ = 6 where phone like "{name}" or fullname like "{name}"; ')
+                                cnx.commit()
+                                txt = "Q/A ??\n\n" if userlang == "fr" else "سؤال و جواب ؟\n\n"
+                                txt += "\n".join([f'{i + 1} --> {v}' for i, v in enumerate(QnA.keys())])
+                                whatsapp.send_to(name, txt)
+                                # txt = ""
+                                # cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 6')
+                                # txt += f"{cur.fetchone()[0]}\n\n"
+                                #
+                                # cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 6;')
+                                # for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                                #     txt += f'{i + 1} --> {v}\n'
+                                #
+                                # whatsapp.send_to(name, txt)
+                        else:
+                            whatsapp.send_to(name, wrong)
+                            txt = ""
+                            cur.execute(f'select {"qts" if USERLANG == "fr" else "qtsar"} from QTS where id = 2')
+                            txt += f"{cur.fetchone()[0]}\n\n"
+
+                            cur.execute(f'select {"ansr" if USERLANG == "fr" else "ansrar"} from ANSRS where qts = 2;')
+                            for i, v in enumerate([i[0] for i in cur.fetchall()]):
+                                txt += f'{i + 1} --> {v}\n'
+
+                            whatsapp.send_to(name, txt)
+
+                    elif str(lastQId) == "3":
+
+                        if latest_msg in [str(i) for i in range(1, 3)]:
+                            if latest_msg == "1":
+                                txt = "National offres :\n\n" if USERLANG == "fr" else "توظيف داخل المغرب :\n\n"
+                                cur.execute(f'select {"ansr" if USERLANG == "fr" else "ansrar"} from ANSRS where qts = 4')
+                                txt += "\n".join([f"{i + 1} --> {v[0]}" for i, v in enumerate(cur.fetchall())])
+                                whatsapp.send_to(name, txt)
+                                cur.execute(
+                                    f'update clients set lastQ = 7 where phone like "{name}" or fullname like "{name}";')
+                                cnx.commit()
+                                # whatsapp.send_to(name, "Merci de nous envoyer vos coordonnées ainsi que votre CV")
+
+                            if latest_msg == "2":
+                                txt = "International offres :" if USERLANG == "fr" else "التوظيف الدولي أو توظييف خارج المغرب :\n\n"
+                                cur.execute(f'select {"ansr" if USERLANG == "fr" else "ansrar"} from ANSRS where qts = 5')
+                                ansrs = [i[0] for i in cur.fetchall()]
+                                txt += "\n".join([f"{i + 1} --> {v}" for i, v in enumerate(ansrs)])
+                                whatsapp.send_to(name, txt)
+                                cur.execute(
+                                    f'update clients set lastQ = 7 where phone like "{name}" or fullname like "{name}";')
+                                cnx.commit()
+                                # whatsapp.send_to(name, "Merci de nous envoyer vos coordonnées ainsi que votre CV")
+
+
+                        else:
+                            whatsapp.send_to(name, wrong)
+                            txt = "Pour quelle offre vous voulez postuler ?\n\n" if userlang == "fr" else "ما الوظيفة التي تريد التقدم  تود الترشح اليها  لها؟\n\n"
+
+                            # cur.execute(f"select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 3")
+                            txt += "\n".join([f"{i + 1} --> {v}" for i, v in
+                                              enumerate(["Recrutement National" if userlang == "f" else "توظيف داخل المغرب",
+                                                         "Recrutement International" if userlang == "fr" else "التوظيف الدولي توظييف خارج المغرب"])])
+
+                            whatsapp.send_to(name, txt)
+
+                    elif str(lastQId) == "6":
                         if latest_msg == "3":
-                            cur.execute(
-                                f'update clients set lastQ = 6 where phone like "{name}" or fullname like "{name}"; ')
-                            cnx.commit()
-                            txt = "Q/A ??\n\n" if userlang == "fr" else "سؤال و جواب ؟\n\n"
+                            whatsapp.send_to(name, QnA[[i for i in QnA.keys()][2]])
+
+                            whatsapp.archiveChat(name)
+                            continue
+                        elif latest_msg in [str(i) for i in range(1, len([i for i in QnA.keys()]) + 1)]:
+                            whatsapp.send_to(name, QnA[[i for i in QnA.keys()][int(latest_msg) - 1]])
+                            txt = "Q/A ??\n\n" if USERLANG == "fr" else "سؤال و جواب ؟\n\n"
                             txt += "\n".join([f'{i + 1} --> {v}' for i, v in enumerate(QnA.keys())])
                             whatsapp.send_to(name, txt)
-                            # txt = ""
-                            # cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 6')
-                            # txt += f"{cur.fetchone()[0]}\n\n"
-                            #
-                            # cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 6;')
-                            # for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                            #     txt += f'{i + 1} --> {v}\n'
-                            #
-                            # whatsapp.send_to(name, txt)
-                    else:
-                        whatsapp.send_to(name, wrong)
-                        txt = ""
-                        cur.execute(f'select {"qts" if userlang == "fr" else "qtsar"} from QTS where id = 2')
-                        txt += f"{cur.fetchone()[0]}\n\n"
+                        else:
+                            whatsapp.send_to(name, wrong)
 
-                        cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 2;')
-                        for i, v in enumerate([i[0] for i in cur.fetchall()]):
-                            txt += f'{i + 1} --> {v}\n'
-
-                        whatsapp.send_to(name, txt)
-
-                if str(lastQId) == "3":
-
-                    if latest_msg in [str(i) for i in range(1, 3)]:
-                        if latest_msg == "1":
-                            txt = "National offres :\n\n" if userlang == "fr" else "توظيف داخل المغرب\n\n"
-                            cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 4')
-                            txt += "\n".join([f"{i + 1} --> {v[0]}" for i, v in enumerate(cur.fetchall())])
+                            txt = "Q/A ??\n\n" if USERLANG == "fr" else "سؤال و جواب ؟\n\n"
+                            txt += "\n".join([f'{i + 1} --> {v}' for i, v in enumerate(QnA.keys())])
                             whatsapp.send_to(name, txt)
-                            cur.execute(
-                                f'update clients set lastQ = 7 where phone like "{name}" or fullname like "{name}";')
-                            cnx.commit()
-                            # whatsapp.send_to(name, "Merci de nous envoyer vos coordonnées ainsi que votre CV")
 
-                        if latest_msg == "2":
-                            txt = "International offres :" if userlang == "fr" else "التوظيف الدولي     توظييف خارج المغرب\n\n"
-                            cur.execute(f'select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 5')
-                            ansrs = [i[0] for i in cur.fetchall()]
-                            txt += "\n".join([f"{i + 1} --> {v}" for i, v in enumerate(ansrs)])
-                            whatsapp.send_to(name, txt)
-                            cur.execute(
-                                f'update clients set lastQ = 7 where phone like "{name}" or fullname like "{name}";')
-                            cnx.commit()
-                            # whatsapp.send_to(name, "Merci de nous envoyer vos coordonnées ainsi que votre CV")
+                    elif str(lastQId) == "7":
+                        ll = []
+                        txt = whatsapp.get_last_sent_msg_for(name)[-1]
+                        for i in txt.split("-->"):
+                            ii = i.replace("\n", "").replace("National offres :1", "").replace("#", "").replace(
+                                "page d'accueil", "").replace("International offres :1", "").replace("2", "").replace("3",
+                                                                                                                      "").replace(
+                                "4", "").replace("5", "")
+                            print(ii)
+                            if ii.strip():
+                                ll.append(ii.strip())
 
+                        try:
+                            if USERLANG == "fr":
+                                cur.execute(
+                                    f'update clients set interest = "{ll[int(latest_msg.strip()) - 1]}" where fullname like "{name}" or phone like "{name}"')
+                        except:
+                            pass
 
-                    else:
-                        whatsapp.send_to(name, wrong)
-                        txt = "Pour quelle offre vous voulez postuler ?\n\n" if userlang == "fr" else "ما الوظيفة التي تريد التقدم  تود الترشح اليها  لها؟\n\n"
+                        whatsapp.send_to(name,
+                                         "Merci de nous envoyer vos coordonnées ainsi que votre CV" if userlang == "fr" else "من فضلك أرسل لنا تفاصيل الاتصال الخاصة بك والسيرة الذاتية.")
+                        # set interests
+                        lastsent = whatsapp.get_last_sent_msg_for(name)
 
-                        # cur.execute(f"select {"ansr" if userlang == "fr" else "ansrar"} from ANSRS where qts = 3")
-                        txt += "\n".join([f"{i + 1} --> {v}" for i, v in
-                                          enumerate(["Recrutement National" if userlang == "f" else "توظيف داخل المغرب",
-                                                     "Recrutement International" if userlang == "fr" else "التوظيف الدولي توظييف خارج المغرب"])])
+                        cur.execute(
+                            f'update clients set lastQ = 8 where phone like "{name}" or fullname like "{name}";')
+                        cnx.commit()
 
-                        whatsapp.send_to(name, txt)
-
-                if str(lastQId) == "6":
-                    if latest_msg == "3":
-                        whatsapp.send_to(name, QnA[[i for i in QnA.keys()][2]])
-
+                    elif str(lastQId) == "8":
+                        whatsapp.send_to(name, """Merci, nous avons bien reçu votre candidature et nous vous remercions pour la confiance que vous nous témoignez.
+                            Sans réponse de notre part dans un délai de 15 jours, vous pourrez considérer que votre dossier n'aura pas été retenu pour le poste demandé.
+                            Nous nous permettons cependant de conserver votre CV dans notre base de données et ne manquerons pas de vous recontacter dès qu'une opportunité répondant à vos attentes se présentera.
+                            Très cordialement.""" if USERLANG == "fr" else """شكرا لك ، لقد تلقينا طلبك ونشكرك على الثقة التي أظهرتها لنا.
+    بدون رد منا في غضون 15 يومًا ، قد تعتبر أن ملفك لن يتم الاحتفاظ به للوظيفة المطلوبة.
+    ومع ذلك ، نسمح لأنفسنا بالاحتفاظ بسيرتك الذاتية في قاعدة بياناتنا ولن نفشل في الاتصال بك بمجرد ظهور فرصة تلبي توقعاتك""")
                         whatsapp.archiveChat(name)
-                        continue
-                    if latest_msg in [str(i) for i in range(1, len([i for i in QnA.keys()]) + 1)]:
-                        whatsapp.send_to(name, QnA[[i for i in QnA.keys()][int(latest_msg) - 1]])
-                        txt = "Q/A ??\n\n" if userlang == "fr" else "سؤال و جواب ؟\n\n"
-                        txt += "\n".join([f'{i + 1} --> {v}' for i, v in enumerate(QnA.keys())])
-                        whatsapp.send_to(name, txt)
-                    else:
-                        whatsapp.send_to(name, wrong)
+                        cur.execute(
+                            f'update clients set lastQ = 2 where phone like "{name}" or fullname like "{name}";')
+                        cnx.commit()
 
-                        txt = "Q/A ??\n\n" if userlang == "fr" else "سؤال و جواب ؟\n\n"
-                        txt += "\n".join([f'{i + 1} --> {v}' for i, v in enumerate(QnA.keys())])
-                        whatsapp.send_to(name, txt)
+                # cur.execute(f'select count(id) where fullname like "{name}" or phone like "{name}"')
+                # if not cur.fetchone()[0]:
+                #     cur.execute(f'insert into clients(phone)value ("{name}");')
+                #     cnx.commit()
+                #
+                # cur.execute(f'select lang from clients where fullname like "{name}", or phone like "{name}";')
+                # lang = cur.fetchone()
+                # if
+                #
+                # if not messgaes_len:
+                #     whatsapp.send_to(name, lang)
 
-                if str(lastQId) == "7":
-                    ll = []
-                    txt = whatsapp.get_last_sent_msg_for(name)[-1]
-                    for i in txt.split("-->"):
-                        ii = i.replace("\n", "").replace("National offres :1", "").replace("#", "").replace(
-                            "page d'accueil", "").replace("International offres :1", "").replace("2", "").replace("3",
-                                                                                                                  "").replace(
-                            "4", "").replace("5", "")
-                        print(ii)
-                        if ii.strip():
-                            ll.append(ii.strip())
+                whatsapp.closeChat()
 
-                    try:
-                        if userlang == "fr":
-                            cur.execute(
-                                f'update clients set interest = "{ll[int(latest_msg.strip()) - 1]}" where fullname like "{name}" or phone like "{name}"')
-                    except:
-                        pass
-
-                    whatsapp.send_to(name,
-                                     "Merci de nous envoyer vos coordonnées ainsi que votre CV" if userlang == "fr" else "من فضلك أرسل لنا تفاصيل الاتصال الخاصة بك والسيرة الذاتية.")
-                    # set interests
-                    lastsent = whatsapp.get_last_sent_msg_for(name)
-
-                    cur.execute(
-                        f'update clients set lastQ = 8 where phone like "{name}" or fullname like "{name}";')
-                    cnx.commit()
-
-                if str(lastQId) == "8":
-                    whatsapp.send_to(name, """Merci, nous avons bien reçu votre candidature et nous vous remercions pour la confiance que vous nous témoignez.
-                        Sans réponse de notre part dans un délai de 15 jours, vous pourrez considérer que votre dossier n'aura pas été retenu pour le poste demandé.
-                        Nous nous permettons cependant de conserver votre CV dans notre base de données et ne manquerons pas de vous recontacter dès qu'une opportunité répondant à vos attentes se présentera.
-                        Très cordialement.""" if userlang == "fr" else """شكرا لك ، لقد تلقينا طلبك ونشكرك على الثقة التي أظهرتها لنا.
-بدون رد منا في غضون 15 يومًا ، قد تعتبر أن ملفك لن يتم الاحتفاظ به للوظيفة المطلوبة.
-ومع ذلك ، نسمح لأنفسنا بالاحتفاظ بسيرتك الذاتية في قاعدة بياناتنا ولن نفشل في الاتصال بك بمجرد ظهور فرصة تلبي توقعاتك""")
-                    whatsapp.archiveChat(name)
-                    cur.execute(
-                        f'update clients set lastQ = 2 where phone like "{name}" or fullname like "{name}";')
-                    cnx.commit()
-
-            # cur.execute(f'select count(id) where fullname like "{name}" or phone like "{name}"')
-            # if not cur.fetchone()[0]:
-            #     cur.execute(f'insert into clients(phone)value ("{name}");')
-            #     cnx.commit()
-            #
-            # cur.execute(f'select lang from clients where fullname like "{name}", or phone like "{name}";')
-            # lang = cur.fetchone()
-            # if
-            #
-            # if not messgaes_len:
-            #     whatsapp.send_to(name, lang)
-
-            whatsapp.closeChat()
-
-            cnx.close()
-    time.sleep(rate)
-    print('refreshing ...')
+                cnx.close()
+        time.sleep(rate)
+        print('refreshing ...')
+    except Exception as e :
+        whatsapp.closeChat()
+        logs(str(e))
 # except Exception  as e :
 #     print(f"ERROR ==> {e}")
 #     logs(f"System down ERROR : {e}")

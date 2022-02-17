@@ -1,0 +1,7 @@
+{
+  "host": "10.73.200.200",
+  "username": "user",
+  "password": "user",
+  "database": "wsupbot",
+  "port": 3306
+}
